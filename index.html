@@ -1,0 +1,52 @@
+<!-- Just saying this is an HTML document -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Page information and a link to load the CSS -->
+<head>
+  <meta charset="UTF-8">
+  <title>Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- body is where all the page content goes -->
+<body>
+  <div id="container">
+    <h1>Hi</h1>
+    <div id="nameInputWrapper">
+      <h2>What is your name?</h2>
+      <input id="nameInput" />
+      <button id="submitNameButton">Enter</button>
+    </div>
+  </div>
+
+  <!-- The particles.js documentation told me to do this -->
+  <div id="particles-js"></div>
+</body>
+
+
+<!-- This loads in the cool particle generator file I found -->
+<!-- https://github.com/VincentGarreau/particles.js/ -->
+<script src="particles.js"></script>
+
+<!-- Javascript code to get a persons name and respond with a greeting -->
+<script>
+  // Load the particles with my special settings
+  particlesJS.load('particles-js', 'particles.json');
+
+  const nameInputWrapper = document.querySelector("#nameInputWrapper")
+  const button = document.querySelector('#submitNameButton')
+  const nameInput = document.querySelector('#nameInput')
+
+  button.addEventListener('click', handleButtonClick)
+
+  function handleButtonClick() {
+    const name = nameInput.value;
+    nameInputWrapper.innerHTML = '';
+
+    const greetingMessage = document.createElement("h2")
+    greetingMessage.innerHTML = 'Nice to meet you ' + name + '! :)';
+    nameInputWrapper.appendChild(greetingMessage)
+  }
+</script>
+</html>
